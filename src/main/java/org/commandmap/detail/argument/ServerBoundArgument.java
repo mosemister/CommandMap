@@ -19,8 +19,8 @@ public interface ServerBoundArgument extends DetailArgument {
 			linked.sort(opSorting.get());
 			return linked;
 		}
-		if (unsortedResults instanceof List<CommandCompletion> sorted) {
-			return sorted;
+		if (unsortedResults instanceof List) {
+			return (List<CommandCompletion>) unsortedResults;
 		}
 		List<CommandCompletion> results = new LinkedList<>(unsortedResults);
 		results.sort(Comparator.comparing(CommandCompletion::completion));

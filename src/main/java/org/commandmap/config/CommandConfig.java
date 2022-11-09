@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class CommandConfig {
 
@@ -87,7 +88,7 @@ public class CommandConfig {
 									+ "invalid)");
 					return null;
 				}).filter(Objects::nonNull)
-				.toList();
+				.collect(Collectors.toList());
 	}
 
 	private MappedCommandDetail buildMappedDetailsFrom(ConfigurationNode node) {
@@ -113,7 +114,7 @@ public class CommandConfig {
 				CommandMappingPlugin.getPlugin().getLogger().warn("failed to read 'alias' from '" + node.key() + "'");
 				return null;
 			}
-			array = list.toArray(String[]::new);
+			array = list.toArray(new String[0]);
 		} catch (SerializationException e) {
 			e.printStackTrace();
 			return null;

@@ -15,6 +15,7 @@ import org.spongepowered.plugin.PluginContainer;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class AddMappingsCommand {
 
@@ -51,7 +52,7 @@ public class AddMappingsCommand {
 				.map(map -> CommandCompletion.of(map.primaryAlias(),
 						Component.text(map.plugin().map(plugin -> plugin.metadata().id() + ":").orElse("")
 								+ map.primaryAlias())))
-				.toList()).build();
+				.collect(Collectors.toList())).build();
 		alias = Parameter.remainingJoinedStrings().key("alias").build();
 
 		Command.Parameterized addAlias = Command

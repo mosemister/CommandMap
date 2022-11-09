@@ -53,7 +53,8 @@ public class CommandMappingPlugin {
 		Collection<CommandDetail> details = commandConfig.buildDetails();
 		this.logger.info("Found '" + details.size() + "' mapped commands");
 		details.forEach(commandDetail -> {
-			if (commandDetail instanceof AliasCommandDetail aliasDetail) {
+			if (commandDetail instanceof AliasCommandDetail) {
+				AliasCommandDetail aliasDetail = (AliasCommandDetail) commandDetail;
 				AliasMappedCommand command = new AliasMappedCommand(aliasDetail);
 				List<String> alias = new ArrayList<>(Arrays.asList(aliasDetail.getAliases()));
 				String original = alias.get(0);
