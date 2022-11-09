@@ -1,0 +1,30 @@
+{
+  "loader": {
+    "name": "java_plain",
+    "version": "1.0"
+  },
+  "license": "MIT",
+  "global": {
+    "version": "8.0.0",
+    "contributors": [
+      {
+        "name": "mosemister",
+        "description": "Lead Developer"
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "spongeapi",
+        "version": "8.0.0"
+      }
+    ]
+  },
+  "plugins": [
+    {
+      "id": "command_map",
+      "name": "CommandMap",
+      "entrypoint": "org.commandmap.CommandMappingPlugin",
+      "description": "Maps commands to others"
+    }
+  ]
+}
